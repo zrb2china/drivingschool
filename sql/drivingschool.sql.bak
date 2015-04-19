@@ -81,14 +81,14 @@ delimiter &&
 #	&&
 #delimiter ;
 
-#delimiter &&
-#create trigger delete_stuu after delete
-#	on studentinfo for each row
-#	begin 
-#		delete from gradeinfo where sno=old.sno;
-#		delete from healthinfo where sno=old.sno;
-#		delete from licenseinfo where sno=old.sno;
-#	end
-#	&&
-#delimiter ;
+delimiter &&
+create trigger delete_stuu after delete
+	on studentinfo for each row
+	begin 
+		delete from gradeinfo where sno=old.sno;
+		delete from healthinfo where sno=old.sno;
+		delete from licenseinfo where sno=old.sno;
+	end
+	&&
+delimiter ;
 show tables;
